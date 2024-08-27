@@ -7,7 +7,7 @@ enable_network_policy  = true
 enable_logging         = false
 
 filestores = {
-  "filestore" = { capacity_gb = 9216 }
+  "filestore" = { capacity_gb = 70 }
 }
 
 # Cloud costs for this project are not passed through by 2i2c
@@ -22,19 +22,11 @@ k8s_versions = {
 }
 
 user_buckets = {
-  "scratch-staging" : {
+  "scratch-dev" : {
     "delete_after" : 7,
     "uniform_bucket_level_access_only" : true
   },
-  "scratch" : {
-    "delete_after" : 7,
-    "uniform_bucket_level_access_only" : true
-  },
-  "persistent-staging" : {
-    "delete_after" : null,
-    "uniform_bucket_level_access_only" : true
-  },
-  "persistent" : {
+  "persistent-dev" : {
     "delete_after" : null,
     "uniform_bucket_level_access_only" : true
   }
@@ -42,30 +34,15 @@ user_buckets = {
 
 # Setup notebook node pools
 notebook_nodes = {
-  "n2-highmem-4-b" : {
+  "n2-standard-2" : {
     min : 0,
-    max : 100,
-    machine_type : "n2-highmem-4",
+    max : 1,
+    machine_type : "n2-standard-2",
   },
-  "n2-highmem-16" : {
+  "n2-highmem-2" : {
     min : 0,
-    max : 100,
-    machine_type : "n2-highmem-16",
-  },
-  "n2-highmem-64" : {
-    min : 0,
-    max : 100,
-    machine_type : "n2-highmem-64",
-  },
-  "gpu-t4" : {
-    min : 0,
-    max : 20,
-    machine_type : "n1-highmem-8",
-    gpu : {
-      enabled : true,
-      type : "nvidia-tesla-t4",
-      count : 1,
-    },
+    max : 1,
+    machine_type : "n2-highmem-2",
   },
 }
 
@@ -75,24 +52,20 @@ notebook_nodes = {
 # node pool, see https://github.com/2i2c-org/infrastructure/issues/2687.
 #
 dask_nodes = {
-  "n2-highmem-16" : {
+  "n2-highmem-2" : {
     min : 0,
-    max : 200,
-    machine_type : "n2-highmem-16"
+    max : 1,
+    machine_type : "n2-highmem-2"
   },
 }
 
 # FIXME: Uncomment requester pays lines and add bucket names to admin access
 #        once bucket access policy restriction has been lifted from the project
 hub_cloud_permissions = {
-  "staging" : {
-    bucket_admin_access : ["scratch-staging", "persistent-staging"],
-    hub_namespace : "staging"
+  "dev" : {
+    bucket_admin_access : ["scratch-dev", "persistent-dev"],
+    hub_namespace : "dev"
   },
-  "prod" : {
-    bucket_admin_access : ["scratch", "persistent"],
-    hub_namespace : "prod"
-  }
 }
 
 container_repos = []
