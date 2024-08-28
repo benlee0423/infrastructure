@@ -1,5 +1,5 @@
 prefix                 = "awi-ciroh"
-project_id             = "ciroh-jupyterhub-423218"
+project_id             = "devops-424119"
 zone                   = "us-central1-b"
 region                 = "us-central1"
 core_node_machine_type = "n2-highmem-4"

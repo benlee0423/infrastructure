@@ -1,7 +1,7 @@
 basehub:
   userServiceAccount:
     annotations:
-      iam.gke.io/gcp-service-account: awi-ciroh-prod@ciroh-jupyterhub-423218.iam.gserviceaccount.com
+      iam.gke.io/gcp-service-account: awi-ciroh-prod@devops-424119.iam.gserviceaccount.com
   jupyterhub:
     ingress:
       hosts: [ciroh.awi.2i2c.cloud]
