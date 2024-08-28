@@ -3,7 +3,7 @@ provider: gcp # https://console.cloud.google.com/home/dashboard?&project=devops-
 gcp:
   key: enc-deployer-credentials.secret.json
   project: devops-424119
-  cluster: awi-ciroh-cluster
+  cluster: jupyter-dev
   zone: us-central1
   billing:
     paid_by_us: false
@@ -12,7 +12,7 @@ support:
     - support.values.yaml
     - enc-support.secret.values.yaml
 hubs:
-  - name: staging
+  - name: dev
     display_name: "Alabama Water Institute: CIROH (dev)"
     domain: dev.ciroh.awi.2i2c.cloud
     helm_chart: daskhub

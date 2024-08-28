@@ -1,12 +1,12 @@
 basehub:
   userServiceAccount:
     annotations:
-      iam.gke.io/gcp-service-account: awi-ciroh-staging@devops-424119.iam.gserviceaccount.com
+      iam.gke.io/gcp-service-account: awi-ciroh-dev@devops-424119.iam.gserviceaccount.com
   jupyterhub:
     ingress:
-      hosts: [staging.ciroh.awi.2i2c.cloud]
+      hosts: [dev.ciroh.awi.2i2c.cloud]
       tls:
-        - hosts: [staging.ciroh.awi.2i2c.cloud]
+        - hosts: [dev.ciroh.awi.2i2c.cloud]
           secretName: https-auto-tls
     singleuser:
       profileList:
